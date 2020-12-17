@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 
-@app.route('/get-trips')
+@app.route("/get-trips", methods=["GET"])
 def api():
     data = [
         {
@@ -42,4 +42,8 @@ def api():
             "price": "2499 EUR"
         },
     ]
-    return jsonify(data)
+
+    response = jsonify(data)
+    response.headers.add("Access-Control-Allow-Origin", "*")
+
+    return response

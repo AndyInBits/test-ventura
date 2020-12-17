@@ -1,12 +1,24 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './ListTrips.css'
+import axios from 'axios';
 import { List, Card, Layout } from 'antd';
 const { Header, Footer, Content } = Layout;
 const { Meta } = Card;
-
+const API_URL = 'http://localhost:5000/get-trips';
 
 export const ListTrips = () => {
-  const [data, setData] = useState([{id:1, logo: "https://cdn.puraventura.info/img/480x360/101.jpg", title: "Soy un titulo ", price: "$ 40"}, {id:1, logo: "https://cdn.puraventura.info/img/480x360/101.jpg", title: "Soy un titulo ", price: "$ 40"}, {id:1, logo: "https://cdn.puraventura.info/img/480x360/101.jpg", title: "Soy un titulo ", price: "$ 40"}])
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    axios.get(API_URL)
+    .then(res => {
+      setData(res.data)
+    })
+    .catch(err =>{
+      setData([])
+    })
+  }, []);
+
   return (
    <>
    <Layout className="layout-container">
