@@ -1,0 +1,23 @@
+@import '~antd/dist/antd.css';
+
+.box-container {
+    margin: 40px;
+}
+
+.header-container {
+    background: #005583;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.footer-container {
+    background: #005583;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.layout-container {
+    height: 100%;
+}
